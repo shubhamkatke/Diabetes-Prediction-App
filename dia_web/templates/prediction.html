@@ -1,0 +1,73 @@
+<html>
+<head>
+	<title>ShuGar</title>
+	<style>
+	*{background-color:#C8A2C8;font-size:24;}
+	a{background-color:#A78787;font-size:24;padding-right:70px;padding-left:70px;color:#D4D2D3;text-decoration:none;}
+	.nav{background-color:#A78787;font-size:24;}
+	#preg{width:300px;}
+	#glu{width:300px;}
+	#bp{width:300px;}
+	#st{width:300px;}
+	#ins{width:300px;}
+	#bmi{width:300px;}
+	#age{width:300px;}
+	</style>
+</head>
+<body>
+<center>
+<div class = "nav">
+<a href = "{{url_for('home')}}">&#128073;EVERYTHING YOU NEED TO KNOW ABOUT DIABETES</a><br><br>
+<a href = "{{url_for('pred')}}">&#128073;DO YOU HAVE DIABETES?</a><br><br>
+<a href = "{{url_for('help')}}">&#128073;TREATMENT & HELP</a>
+</div><br>
+<h2>Provide below information to find out whether or not you have diabetes.</h2>
+<form action="/prediction">
+<table>
+<tr>
+<td>Number of pregnancies:</td>
+<td><input type = "number" id = "preg" name = "preg" min="0" max="15" required></td>
+</tr>
+<tr>
+<td>Glucose:</td>
+<td><input type = "number" name="glu" id="glu" min="0" max="250" required></td>
+</tr>
+<tr>
+<td>Blood-Pressure:</td>
+<td><input type = "number" name = "bp" id="bp" min="40" max="200" required></td>
+</tr>
+<tr>
+<td>Skin-Thickness:</td>
+<td><input type = "number" name = "st" id="st" step=any min="0" max="90" required></td>
+</tr>
+<tr>
+<td>Insulin:</td>
+<td><input type = "number" name = "ins" id="ins" min="0" max="900" required></td>
+</tr>
+<tr>
+<td>Body Mass Index (BMI):</td>
+<td><input type = "number" name = "bmi" id="bmi" step=any min="0" max="100" required></td>
+</tr>
+<tr>
+<td>Diabetes Pedigree Function:</td>
+<td><input type = "number" name = "dpf" id="dpf" step=any min="0" max="10" required></td>
+</tr>
+<tr>
+<td>Age:</td>
+<td><input type = "number" name = "age" id="age" min="1" max="110" required></td>
+</tr>
+</table>
+<br>
+<input type = "submit" value = "Check Now" style = "background-color:#000000;color:#FFFFFF;">
+</form>
+{{ msg }}
+<br>
+<br>
+{% if msg == "You have diabetes." %}
+	<div class = "h">
+	<a href = "https://www.medifee.com/best-doctors/diabetes-specialist-in-mumbai/">Click here to get help from diabetologist</a>
+	</div>
+{% endif %}
+</center>
+</body>
+</html>
